@@ -21,6 +21,7 @@
         },
         data(){
             return {
+
                 noEmail: 'no email',
                 curShip: this.Ship || {name:23,email:32,boxes:23}
             }
