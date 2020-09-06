@@ -32,7 +32,6 @@
             if(window.localStorage.allShips){
                 this.allShips = JSON.parse(window.localStorage.getItem('allShips'));
             }else{
-                alert("You have any data, load it by internet");
                 document.body.classList += 'download';
             }
         },

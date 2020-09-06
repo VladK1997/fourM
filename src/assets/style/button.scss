@@ -13,7 +13,7 @@
   }
   &:active{
     box-shadow: 0 0 5px 1px rgba(0,0,0,1);
-    transform: translate(4px,4px);
+    transform: translate3D(4px,4px,0);
   }
 }
 

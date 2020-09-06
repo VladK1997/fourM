@@ -5,7 +5,8 @@
         path:'item/',
         params:{
             id: ship.name,
-            Ship:ship
+            Ship:ship,
+            key: ship.id
         },
         }">{{ship.name}}</router-link>
     </div>
@@ -28,7 +29,6 @@
             }
         },
         mounted(){
-
 
         },
         created(){

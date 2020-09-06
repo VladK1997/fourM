@@ -1,12 +1,12 @@
 <template>
     <div class="item">
-        <div class="item__wrap">
-            <h3 class="item__title">{{Ship.name || 'no information'}}</h3>
-            <p class="item__email">Email: <a :href="'mailto:'+(Ship.email || 'no info')">{{Ship.email || this.noEmail}}</a></p>
+        <div v-if='!loading' class="item__wrap">
+            <h3 class="item__title">{{curShip.name}}</h3>
+            <p class="item__email">Email: <a :href="'mailto:'+(curShip.email)">{{curShip.email}}</a></p>
             <p class="item__count">Number of required cargo bays <strong>{{bayAmount}}</strong></p>
             <div class="item__box">
                 <p >Cargo boxes</p>
-                <input v-on:keydown="validateFigure" @change="newValue" type="text" :value="Ship.boxes"><!---->
+                <input v-on:keydown="validateFigure" @change="newValue" type="text" :value="curShip.boxes">
             </div>
         </div>
     </div>
@@ -15,38 +15,32 @@
     export default {
         components:{
         },
-        nameItem: 'Item',
         props:{
             Ship: Object
         },
         data(){
             return {
-
                 noEmail: 'no email',
-                curShip: this.Ship || {name:23,email:32,boxes:23}
+                curShip: this.Ship,
+                loading: true
             }
         },
         mounted(){
-
-        },
-        created(){
-
+            if(!this.Ship){
+                this.curShip = this.findShip('name',this.name);
+                this.loading = false;
+            }
         },
         methods:{
             calculateBay(val){
-                console.log(val);
                 if(val.length <= 0 ){
                     return
-                }
-                if(typeof val !== 'string'){
-                    val = val.target.value;
                 }
                 let nameArr = val.split(',');
                 let Amount = 0;
                 nameArr.forEach(item=>{
                     Amount += +item;
                 });
-                // this.bayAmount = Math.ceil(Amount/10);
                 return Math.ceil(Amount/10);
             },
             validateFigure(event){
@@ -56,10 +50,10 @@
             },
             newValue(event){
                 let valueString = event.target.value;
-                let shipInArr =  this.findShip('id',this.Ship.id);
-                this.Ship.boxes = valueString;
+                let shipInArr = this.findShip('id',this.curShip.id);
+                this.curShip.boxes = valueString;
                 this.calculateBay(valueString);
-                shipInArr = this.Ship;
+                shipInArr = this.curShip;
             },
             findShip(selector,selectorValue){
                 let availableSelectors = ['id','name'];
@@ -75,16 +69,15 @@
         },
         computed:{
             bayAmount: function () {
-                return this.calculateBay( this.Ship.boxes);
+                return this.calculateBay( this.curShip.boxes);
             },
             name: function () {
-                let nameReg = new RegExp('(?!\\/)[\\w\\s\\d-@#]*$','g');
+                let nameReg = new RegExp('(?!\\/)[\\w\\s\\d-]*$','g');
                 return this.$route.path.match(nameReg)[0];
             },
             allShips: function () {
                 return this.$parent.allShips
-            },
-
+            }
         },
         watch:{
             Ship: {
@@ -94,12 +87,6 @@
                 }
 
             },
-            allShips:{
-                immediate:false,
-                handler(val){
-                    this.Ship = this.findShip('name',this.name);
-                }
-            }
         }
 
     }
