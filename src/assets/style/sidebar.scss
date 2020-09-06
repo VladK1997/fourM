@@ -22,3 +22,11 @@
     }
   }
 }
+@media all and(max-width: 576px){
+  .sidebar{
+    padding: 4px 8px;
+    &__link{
+      font-size: 14px;
+    }
+  }
+}
