@@ -28,8 +28,8 @@
         mounted(){
             if(!this.Ship){
                 this.curShip = this.findShip('name',this.name);
-                this.loading = false;
             }
+            this.loading = false;
         },
         methods:{
             calculateBay(val){
