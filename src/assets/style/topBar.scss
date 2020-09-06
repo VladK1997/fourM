@@ -1,0 +1,12 @@
+.topBar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #ccc;
+  width: 100%;
+  h2{
+    font-size: 40px;
+    letter-spacing: 0.02em;
+  }
+}

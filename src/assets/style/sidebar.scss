@@ -1,0 +1,24 @@
+.sidebar{
+  width: 40%;
+  height: 100%;
+  background-color: darkgray;
+  padding: 8px 12px;
+  display: block;
+  overflow-y: scroll;
+  flex-grow: 1;
+  &__link{
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #e8e8e8;
+    padding: 4px 12px;
+    margin: 8px 0;
+    border-radius: 3px;
+    transition: 0.3s;
+    background-color: darkolivegreen;
+    &:hover{
+      background-color: lighten(darkolivegreen,10);
+    }
+  }
+}

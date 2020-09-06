@@ -1,0 +1,18 @@
+.button{
+  background-color: darkolivegreen;
+  font-size: 16px;
+  color: #e8e8e8;
+  border: none;
+  padding: 4px 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 4px 4px 5px 1px rgba(0,0,0,1);
+  outline: none;
+  &:hover{
+    background-color: lighten(darkolivegreen,5);
+  }
+  &:active{
+    box-shadow: 0 0 5px 1px rgba(0,0,0,1);
+    transform: translate(4px,4px);
+  }
+}

@@ -1,0 +1,46 @@
+.item{
+  width: 60%;
+  padding: 16px 0px 0px 20px;
+  &__wrap{
+    padding:40px 40px 40px 5%;
+    border: 1px solid #000;
+    border-radius: 5px;
+  }
+  &__title{
+    font-size: 32px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 16px;
+  }
+  &__email{
+    font-size: 20px;
+    margin: 0 0 40px;
+    text-decoration: none;
+    a{
+      text-decoration: none;
+    }
+  }
+  &__box{
+    margin-top: 40px;
+    input{
+      display: block;
+      padding: 8px 2px;
+      font-size: 20px;
+      margin-top: 16px;
+      width: 100%;
+      letter-spacing: 0.15em;
+    }
+    p{
+      font-size: 20px;
+    }
+  }
+  &__count{
+    font-size: 20px;
+  }
+}
+@media all and(max-width: 984px){
+  .item{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
