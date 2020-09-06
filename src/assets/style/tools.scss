@@ -1,8 +1,23 @@
 .tools{
   display: flex;
+
   &__item{
+    position: relative;
     &:not(:first-child){
       margin-left: 12px;
     }
+    &--help{
+      z-index: 2;
+    }
   }
+  &__help-arrow{
+    width: 100px;
+    position: absolute;
+    right: 30%;
+    top: 100%;
+    display: none;
+  }
+}
+.download .tools__help-arrow{
+  display: block;
 }

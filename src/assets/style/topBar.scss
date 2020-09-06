@@ -2,11 +2,35 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 16px;
   background-color: #ccc;
   width: 100%;
   h2{
     font-size: 40px;
     letter-spacing: 0.02em;
+  }
+  &__search{
+    margin: 0 16px;
+    max-width: 400px;
+  }
+}
+@media all and(max-width: 768px) {
+  .topBar{
+    flex-wrap: wrap;
+    &__search{
+      margin: 16px 0 0 auto;
+      order: 3;
+    }
+    &__tools{
+      order: 1;
+    }
+  }
+}
+@media all and(max-width: 576px) {
+  .topBar{
+    h2{
+      font-size: 26px;
+    }
   }
 }

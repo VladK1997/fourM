@@ -10,7 +10,10 @@
                 <input @input="search" type="text" placeholder="Search">
             </label>
         <div class="topBar__tools tools">
-            <btn class="tools__item" title="Load" v-on:method="load"></btn>
+            <div class="tools__item tools__item--help">
+                <btn  title="Load" v-on:method="load"></btn>
+                <img src="dist/img/arrow.png" class="tools__help-arrow">
+            </div>
             <btn class="tools__item" title="Save" v-on:method="save"></btn>
         </div>
     </div>
@@ -46,6 +49,9 @@
                     })
                     .then((data) => {
                         this.$parent.allShips = data;
+                        if(document.body.classList.contains('download')) {
+                            document.body.classList.remove('download')
+                        }
                     })
                     .catch( error=>{
                     console.error('Ошибка:', error);
